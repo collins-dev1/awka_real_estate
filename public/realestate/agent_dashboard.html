@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Dashboard - Awka Real Estate Agents Association Portal</title>
+    <link rel="icon" href="img/WhatsApp Image 2025-12-12 at 8.39.38 AM.jpeg">
+    <link rel="stylesheet" href="css/agent_dashboard.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-text">LOADING</div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo">
+                <img src="/img/realestate-removebg-preview.png" alt="">
+            </a>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="#" class="menu-link active">
+                    <span class="menu-icon">📊</span>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-text">My Properties</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">➕</span>
+                    <span class="menu-text">Add Property</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">👤</span>
+                    <span class="menu-text">My Profile</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">🆔</span>
+                    <span class="menu-text">ID Card</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">💳</span>
+                    <span class="menu-text">Payments</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">🎓</span>
+                    <span class="menu-text">Training</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">📄</span>
+                    <span class="menu-text">Documents</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">💬</span>
+                    <span class="menu-text">Messages</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">⚙️</span>
+                    <span class="menu-text">Settings</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">🚪</span>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <div class="top-bar-right">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search...">
+                </div>
+
+                <button class="notification-btn">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </button>
+
+                <div class="user-profile">
+                    <div class="user-avatar">CO</div>
+                    <div class="user-info">
+                        <h4>Chukwuemeka Okafor</h4>
+                        <p>Agent • REAA-2024-00123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Welcome Back, Chukwuemeka! 👋</h1>
+                <p>Here's what's happening with your properties today</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">Active Listings</div>
+                            <div class="stat-trend up">
+                                ↑ 12% from last month
+                            </div>
+                        </div>
+                        <div class="stat-icon">🏠</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">156</div>
+                            <div class="stat-label">Property Views</div>
+                            <div class="stat-trend up">
+                                ↑ 8% from last week
+                            </div>
+                        </div>
+                        <div class="stat-icon">👁️</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Inquiries</div>
+                            <div class="stat-trend up">
+                                ↑ 5 new today
+                            </div>
+                        </div>
+                        <div class="stat-icon">💬</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">₦2.4M</div>
+                            <div class="stat-label">Total Value</div>
+                            <div class="stat-trend up">
+                                ↑ 15% this quarter
+                            </div>
+                        </div>
+                        <div class="stat-icon">💰</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <button class="action-btn">
+                        <div class="action-icon">➕</div>
+                        <div class="action-label">Add Property</div>
+                    </button>
+                    <button class="action-btn">
+                        <div class="action-icon">🔄</div>
+                        <div class="action-label">Renew Membership</div>
+                    </button>
+                    <button class="action-btn">
+                        <div class="action-icon">💾</div>
+                        <div class="action-label">Download ID</div>
+                    </button>
+                    <button class="action-btn">
+                        <div class="action-icon">📊</div>
+                        <div class="action-label">View Reports</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activity Section -->
+            <div class="activity-section">
+                <div class="section-card">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-item">
+                        <div class="activity-icon">👁️</div>
+                        <div class="activity-content">
+                            <h4>New property view</h4>
+                            <p>3-bedroom apartment in Awka • 2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">💬</div>
+                        <div class="activity-content">
+                            <h4>New inquiry received</h4>
+                            <p>Duplex in GRA Onitsha • 5 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">✅</div>
+                        <div class="activity-content">
+                            <h4>Property approved</h4>
+                            <p>2-bedroom flat in Okpuno • Yesterday</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">🏠</div>
+                        <div class="activity-content">
+                            <h4>Property listed</h4>
+                            <p>5-bedroom mansion in Awka • 2 days ago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Membership Status</h2>
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+                        <h3 style="color: var(--success); margin-bottom: 0.5rem;">Active</h3>
+                        <p style="color: var(--gray); margin-bottom: 1.5rem;">Your membership is current</p>
+                        <div style="background: var(--light); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <p style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.3rem;">Expires on</p>
+                            <p style="font-weight: 700; color: var(--dark);">January 14, 2026</p>
+                        </div>
+                        <button style="width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Renew Early</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties Table -->
+            <div class="properties-table">
+                <h2>My Recent Properties</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Location</th>
+                            <th>Price</th>
+                            <th>Views</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>3-Bedroom Apartment</strong></td>
+                            <td>Awka, Anambra</td>
+                            <td>₦15M</td>
+                            <td>45</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-icon-btn">👁️</button>
+                                    <button class="action-icon-btn">✏️</button>
+                                    <button class="action-icon-btn">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>2-Bedroom Flat</strong></td>
+                            <td>Awka, Anambra</td>
+                            <td>₦8.5M</td>
+                            <td>28</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-icon-btn">👁️</button>
+                                    <button class="action-icon-btn">✏️</button>
+                                    <button class="action-icon-btn">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>4-Bedroom Bungalow</strong></td>
+                            <td>Nnewi, Anambra</td>
+                            <td>₦22M</td>
+                            <td>51</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-icon-btn">👁️</button>
+                                    <button class="action-icon-btn">✏️</button>
+                                    <button class="action-icon-btn">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Luxury Mansion</strong></td>
+                            <td>Awka GRA, Anambra</td>
+                            <td>₦45M</td>
+                            <td>67</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="action-icon-btn">👁️</button>
+                                    <button class="action-icon-btn">✏️</button>
+                                    <button class="action-icon-btn">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hide');
+            }, 1500);
+        });
+
+        // Sidebar Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar on mobile when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // Menu links active state
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                menuLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Quick action buttons
+        const actionBtns = document.querySelectorAll('.action-btn');
+        actionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const label = btn.querySelector('.action-label').textContent;
+                alert(`${label} feature will be available soon!`);
+            });
+        });
+
+        // Table action buttons
+        const actionIconBtns = document.querySelectorAll('.action-icon-btn');
+        actionIconBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.textContent.trim();
+                let actionName = '';
+                if (action === '👁️') actionName = 'View';
+                else if (action === '✏️') actionName = 'Edit';
+                else if (action === '🗑️') actionName = 'Delete';
+                
+                alert(`${actionName} action clicked!`);
+            });
+        });
+
+        // Notification button
+        const notificationBtn = document.querySelector('.notification-btn');
+        notificationBtn.addEventListener('click', () => {
+            alert('Notifications:\n\n1. New inquiry for 3-bedroom apartment\n2. Property view milestone reached\n3. Membership renewal reminder');
+        });
+
+        // User profile dropdown simulation
+        const userProfile = document.querySelector('.user-profile');
+        userProfile.addEventListener('click', () => {
+            alert('Profile menu:\n• View Profile\n• Edit Profile\n• Settings\n• Logout');
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-bar input');
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const searchTerm = searchInput.value;
+                if (searchTerm) {
+                    alert(`Searching for: ${searchTerm}`);
+                    searchInput.value = '';
+                }
+            }
+        });
+
+        // Animate stats on load
+        const animateStats = () => {
+            const statValues = document.querySelectorAll('.stat-value');
+            statValues.forEach((stat, index) => {
+                stat.style.opacity = '0';
+                stat.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    stat.style.transition = 'all 0.5s ease';
+                    stat.style.opacity = '1';
+                    stat.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        };
+
+        // Run animation after preloader
+        setTimeout(animateStats, 1600);
+
+        // Activity items hover effect
+        const activityItems = document.querySelectorAll('.activity-item');
+        activityItems.forEach(item => {
+            item.addEventListener('click', () => {
+                alert('View full activity details');
+            });
+        });
+
+        // Table row click to view details
+        const tableRows = document.querySelectorAll('tbody tr');
+        tableRows.forEach(row => {
+            row.style.cursor = 'pointer';
+            row.addEventListener('click', (e) => {
+                if (!e.target.closest('.action-icon-btn')) {
+                    const propertyName = row.querySelector('strong').textContent;
+                    alert(`Viewing details for: ${propertyName}`);
+                }
+            });
+        });
+
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Real-time clock in console (optional)
+        setInterval(() => {
+            const now = new Date();
+            console.log(`Dashboard Active: ${now.toLocaleTimeString()}`);
+        }, 60000); // Every minute
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + K for search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            
+            // Ctrl/Cmd + B for sidebar toggle
+            if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                e.preventDefault();
+                sidebar.classList.toggle('collapsed');
+            }
+        });
+
+        // Auto-hide mobile sidebar on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Add tooltip functionality
+        const addTooltips = () => {
+            const iconBtns = document.querySelectorAll('.action-icon-btn');
+            iconBtns.forEach(btn => {
+                btn.setAttribute('title', btn.textContent.trim() === '👁️' ? 'View' : 
+                                         btn.textContent.trim() === '✏️' ? 'Edit' : 'Delete');
+            });
+        };
+
+        addTooltips();
+
+        // Loading state simulation for actions
+        const showLoading = (button) => {
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏳';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 1000);
+        };
+
+        // Enhanced action button with loading
+        actionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                showLoading(this);
+            });
+        });
+
+        // Welcome message on first load
+        if (!sessionStorage.getItem('welcomed')) {
+            setTimeout(() => {
+                alert('Welcome to your Agent Dashboard! 🎉\n\nHere you can manage your properties, track inquiries, and monitor your performance.');
+                sessionStorage.setItem('welcomed', 'true');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>️
