@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Agents Association - Official Portal</title>
     <link rel="stylesheet" href="{{asset('realestate/css/index.css')}}">
+    <link rel="icon" href="{{asset('realestate/img/WhatsApp Image 2025-12-12 at 8.39.38 AM.jpeg')}}">
 </head>
 <body>
     <!-- Preloader -->
@@ -19,7 +20,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="{{url('/')}}" class="logo">
                 <img src="{{asset('realestate/img/realestate-removebg-preview.png')}}" alt="">
             </a>
             <div class="menu-toggle" id="menuToggle">
@@ -28,12 +29,12 @@
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#verify">Verify Agent</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><button class="btn-primary">Member Login</button></li>
+                <li><a href="{{url('/')}}">Home</a></li>
+                <li><a href="{{route('verify_agent')}}">Verify Agent</a></li>
+                <li><a href="{{route('features')}}">Features</a></li>
+                <li><a href="{{route('about')}}">About</a></li>
+                <li><a href="{{route('contact')}}">Contact</a></li>
+                <li><a href="{{route('login')}}"><button class="btn-primary">Member Login</button></a></li>
             </ul>
         </div>
     </nav>
@@ -64,8 +65,8 @@
             <h1>Official Real Estate Agents Association</h1>
             <p>The government-recognized platform for verified real estate agents in Anambra State. Fight fraud, verify agents, manage properties, and build a trusted real estate community.</p>
             <div class="hero-buttons">
-                <a href="#verify" class="btn-primary">Verify an Agent</a>
-                <a href="#register" class="btn-secondary">Register as Member</a>
+                <a href="{{route('verify_agent')}}" class="btn-primary">Verify an Agent</a>
+                <a href="{{route('login')}}" class="btn-secondary">Register as Member</a>
             </div>
         </div>
 
@@ -84,25 +85,25 @@
                 <div class="action-icon">✓</div>
                 <h3>Verify Agent</h3>
                 <p>Check if an agent is registered and verified</p>
-                <button class="action-btn">Verify Now</button>
+                <a href="{{route('verify_agent')}}"><button class="action-btn">Verify Now</button></a>
             </div>
             <div class="action-card">
                 <div class="action-icon">📝</div>
                 <h3>Register Member</h3>
                 <p>Join our association as a verified agent</p>
-                <button class="action-btn">Register</button>
+               <a href="{{route('login')}}"><button class="action-btn">Register</button></a>
             </div>
             <div class="action-card">
                 <div class="action-icon">🏠</div>
                 <h3>List Property</h3>
                 <p>Landlords can submit properties for listing</p>
-                <button class="action-btn">List Now</button>
+                <a href=""><button class="action-btn">List Now</button></a>
             </div>
             <div class="action-card">
                 <div class="action-icon">⚠️</div>
                 <h3>Report Fraud</h3>
                 <p>Report fraudulent agents or misconduct</p>
-                <button class="action-btn">Report</button>
+                <a href=""><button class="action-btn">Report</button></a>
             </div>
         </div>
     </section>
@@ -154,11 +155,6 @@
                 <h3>Training & Certification</h3>
                 <p>Online courses on property laws, fraud prevention, and real estate ethics with official certificates.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎓</div>
-                <h3>Training & Certification</h3>
-                <p>Online courses on property laws, fraud prevention, and real estate ethics with official certificates.</p>
-            </div>
         </div>
     </section>
     <!-- Stats Section -->
@@ -188,7 +184,7 @@
     <div class="cta-content">
         <h2>Join the Official Association</h2>
         <p>Become a verified member of the Real Estate Agents Association and gain access to exclusive tools, training, and a trusted network. Help us regulate the industry and fight fraud.</p>
-        <button class="btn-primary">Apply for Membership</button>
+        <a href="{{route('login')}}"><button class="btn-primary">Apply for Membership</button></a>
     </div>
 </section>
 
@@ -203,24 +199,24 @@
         </div>
         <div class="footer-section">
             <h3>Quick Links</h3>
-            <a href="#">Verify Agent</a>
-            <a href="#">Register Member</a>
-            <a href="#">List Property</a>
+            <a href="{{route('verify_agent')}}">Verify Agent</a>
+            <a href="{{route('login')}}">Register Member</a>
+            <a href="{{route('login')}}">List Property</a>
             <a href="#">Report Fraud</a>
         </div>
         <div class="footer-section">
             <h3>For Members</h3>
-            <a href="#">Member Login</a>
-            <a href="#">Renew Membership</a>
-            <a href="#">Download ID Card</a>
-            <a href="#">Pay Dues</a>
+            <a href="{{route('login')}}">Member Login</a>
+            <a href="{{route('login')}}">Renew Membership</a>
+            <a href="{{route('login')}}">Download ID Card</a>
+            <a href="{{route('login')}}">Pay Dues</a>
         </div>
         <div class="footer-section">
             <h3>Resources</h3>
             <a href="#">Constitution</a>
             <a href="#">Rules & Regulations</a>
             <a href="#">Training Portal</a>
-            <a href="#">Contact Support</a>
+            <a href="{{route('contact')}}">Contact Support</a>
         </div>
     </div>
     <div class="footer-bottom">
