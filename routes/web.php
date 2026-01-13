@@ -14,6 +14,10 @@ Route::get('contact', [LandingPageController::class, 'contact'])->name('contact'
 Route::get('features', [LandingPageController::class, 'features'])->name('features');
 Route::get('verify_agent', [LandingPageController::class, 'verify_agent'])->name('verify_agent');
 
+Route::get('login2', function(){
+    return view('auth.login2');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
