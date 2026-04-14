@@ -1001,10 +1001,209 @@
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hide');
+            }, 1500);
+        });
 
-                    <div class="property-item">
-                        <div class="property-image">🏘️</div>
-                        <div class="property-info">
-                            <h3>2-Bedroom Flat</h3>
-                            <div class="property-meta">
-                                <span>📍 Aw
+        // Sidebar Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar on mobile when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // Menu links active state
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                menuLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Quick action buttons
+        const actionBtns = document.querySelectorAll('.action-btn');
+        actionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const label = btn.querySelector('.action-label').textContent;
+                alert(`${label} feature will be available soon!`);
+            });
+        });
+
+        // Table action buttons
+        const actionIconBtns = document.querySelectorAll('.action-icon-btn');
+        actionIconBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.textContent.trim();
+                let actionName = '';
+                if (action === '👁️') actionName = 'View';
+                else if (action === '✏️') actionName = 'Edit';
+                else if (action === '🗑️') actionName = 'Delete';
+
+                alert(`${actionName} action clicked!`);
+            });
+        });
+
+        // Notification button
+        const notificationBtn = document.querySelector('.notification-btn');
+        notificationBtn.addEventListener('click', () => {
+            alert('Notifications:\n\n1. New inquiry for 3-bedroom apartment\n2. Property view milestone reached\n3. Membership renewal reminder');
+        });
+
+        // User profile dropdown simulation
+        const userProfile = document.querySelector('.user-profile');
+        userProfile.addEventListener('click', () => {
+            alert('Profile menu:\n• View Profile\n• Edit Profile\n• Settings\n• Logout');
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-bar input');
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const searchTerm = searchInput.value;
+                if (searchTerm) {
+                    alert(`Searching for: ${searchTerm}`);
+                    searchInput.value = '';
+                }
+            }
+        });
+
+        // Animate stats on load
+        const animateStats = () => {
+            const statValues = document.querySelectorAll('.stat-value');
+            statValues.forEach((stat, index) => {
+                stat.style.opacity = '0';
+                stat.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    stat.style.transition = 'all 0.5s ease';
+                    stat.style.opacity = '1';
+                    stat.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        };
+
+        // Run animation after preloader
+        setTimeout(animateStats, 1600);
+
+        // Activity items hover effect
+        const activityItems = document.querySelectorAll('.activity-item');
+        activityItems.forEach(item => {
+            item.addEventListener('click', () => {
+                alert('View full activity details');
+            });
+        });
+
+        // Table row click to view details
+        const tableRows = document.querySelectorAll('tbody tr');
+        tableRows.forEach(row => {
+            row.style.cursor = 'pointer';
+            row.addEventListener('click', (e) => {
+                if (!e.target.closest('.action-icon-btn')) {
+                    const propertyName = row.querySelector('strong').textContent;
+                    alert(`Viewing details for: ${propertyName}`);
+                }
+            });
+        });
+
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Real-time clock in console (optional)
+        setInterval(() => {
+            const now = new Date();
+            console.log(`Dashboard Active: ${now.toLocaleTimeString()}`);
+        }, 60000); // Every minute
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + K for search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+
+            // Ctrl/Cmd + B for sidebar toggle
+            if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                e.preventDefault();
+                sidebar.classList.toggle('collapsed');
+            }
+        });
+
+        // Auto-hide mobile sidebar on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Add tooltip functionality
+        const addTooltips = () => {
+            const iconBtns = document.querySelectorAll('.action-icon-btn');
+            iconBtns.forEach(btn => {
+                btn.setAttribute('title', btn.textContent.trim() === '👁️' ? 'View' :
+                                         btn.textContent.trim() === '✏️' ? 'Edit' : 'Delete');
+            });
+        };
+
+        addTooltips();
+
+        // Loading state simulation for actions
+        const showLoading = (button) => {
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏳';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 1000);
+        };
+
+        // Enhanced action button with loading
+        actionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                showLoading(this);
+            });
+        });
+
+        // Welcome message on first load
+        if (!sessionStorage.getItem('welcomed')) {
+            setTimeout(() => {
+                alert('Welcome to your Agent Dashboard! 🎉\n\nHere you can manage your properties, track inquiries, and monitor your performance.');
+                sessionStorage.setItem('welcomed', 'true');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

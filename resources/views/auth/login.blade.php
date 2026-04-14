@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register - Awka Real Estate Agents Association</title>
-    <link rel="stylesheet" href="{{asset('realestate/css/login.css')}}">
-    <link rel="icon" href="{{asset('realestate/img/WhatsApp Image 2025-12-12 at 8.39.38 AM.jpeg')}}">
+    <link rel="stylesheet" href="{{ asset('realestate/css/login.css') }}">
+    <link rel="icon" href="{{ asset('realestate/img/WhatsApp Image 2025-12-12 at 8.39.38 AM.jpeg') }}">
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader">
@@ -19,14 +21,14 @@
 
     <!-- Logo Header -->
     <div class="logo-header">
-        <a href="{{url('/')}}" class="logo">
-            <img src="{{asset('realestate/img/realestate-removebg-preview.png')}}" alt="">
+        <a href="{{ url('/') }}" class="logo">
+            <img src="{{ asset('realestate/img/realestate-removebg-preview.png') }}" alt="">
         </a>
     </div>
 
     <!-- Back to Home -->
     <div class="back-home">
-        <a href="{{url('/')}}">← Home</a>
+        <a href="{{ url('/') }}">← Home</a>
     </div>
 
     <!-- Auth Container -->
@@ -36,7 +38,8 @@
             <div class="info-panel">
                 <div class="info-content">
                     <h2>Welcome to AREAA</h2>
-                    <p>Join the official Real Estate Agents Association and become part of Nigeria's most trusted platform for verified agents.</p>
+                    <p>Join the official Real Estate Agents Association and become part of Nigeria's most trusted
+                        platform for verified agents.</p>
 
                     <ul class="info-features">
                         <li>Verified membership credentials</li>
@@ -64,7 +67,7 @@
                         <p>Login to access your account</p>
                     </div>
 
-                    <form id="loginFormSubmit" method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group">
                             <label>Email address</label>
@@ -79,7 +82,8 @@
                             <div class="input-wrapper">
                                 <span class="input-icon">🔒</span>
                                 <input type="password" id="loginPassword" placeholder="Enter your password" required>
-                                <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
+                                <button type="button" class="password-toggle"
+                                    onclick="togglePassword('loginPassword')">👁️</button>
                             </div>
                         </div>
 
@@ -105,43 +109,46 @@
                         <p>Register as a new member</p>
                     </div>
 
-                    <div class="success-message" id="registerSuccess">
-                        <h3>✓ Registration Successful!</h3>
-                        <p>Please check your email to verify your account.</p>
-                    </div>
-
                     <form action="{{ route('register') }}" method="POST">
                         @csrf
-                        <!-- User Type Selection -->
-                        <div class="user-type-selection">
-                            <div class="user-type-card" onclick="selectUserType('tenant')">
-                                <div class="user-type-icon">👨‍💼</div>
-                                <div class="user-type-label" name="user_select">Tenant</div>
-                            </div>
-                            <div class="user-type-card" onclick="selectUserType('agent')">
-                                <div class="user-type-icon">👨‍💼</div>
-                                <div class="user-type-label" name="user_select">Agent</div>
-                            </div>
-                            <div class="user-type-card" onclick="selectUserType('landlord')">
-                                <div class="user-type-icon">🏢</div>
-                                <div class="user-type-label" name="user_select">Landlord</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="userType" name="user_select" required>
-
                         <div class="form-group">
                             <label>Full Name</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">👤</span>
-                                <input type="text" id="regName" name="name" placeholder="Enter your full name" required>
+                                <input type="text" name="name"
+                                    class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
+                                    autocomplete="name" autofocus placeholder="Enter your full name" required>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="">Select User</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">👤</span>
+                                <select name="user_select" id="">
+                                    <option>Tenant</option>
+                                    <option>Agent</option>
+                                    <option>LandLord</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label>Email Address</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">📧</span>
-                                <input type="email" id="regEmail" name="email" placeholder="your.email@example.com" required>
+                                <input type="email" name="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    value="{{ old('email') }}" autocomplete="email"
+                                    placeholder="your.email@example.com" required>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -149,19 +156,20 @@
                             <label>Phone Number</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">📱</span>
-                                <input type="tel" id="regPhone" name="phone_no" placeholder="0803 456 7890" required>
+                                <input type="tel" name="phone_no" placeholder="0803 456 7890"
+                                    required>
                             </div>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label>Date of Birth</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">📅</span>
-                                <input type="date" id="regPhone" name="dob" required>
+                                <input type="date" name="dob" required>
                             </div>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label>Gender</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🚻</span>
@@ -173,11 +181,12 @@
                             </div>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label>Nationality</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="nationality" placeholder="Enter your Nationality" required>
+                                <input type="text" name="nationality"
+                                    placeholder="Enter your Nationality" required>
                             </div>
                         </div>
 
@@ -185,7 +194,8 @@
                             <label>State of Residence</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="state_of_residence" placeholder="Enter your State of Residence" required>
+                                <input type="text" name="state_of_residence"
+                                    placeholder="Enter your State of Residence" required>
                             </div>
                         </div>
 
@@ -193,7 +203,8 @@
                             <label>Town</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="town" placeholder="Enter your Town" required>
+                                <input type="text" name="town" placeholder="Enter your Town"
+                                    required>
                             </div>
                         </div>
 
@@ -201,7 +212,8 @@
                             <label>Street Address</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="street_address" placeholder="Enter your street Address" required>
+                                <input type="text" name="street_address"
+                                    placeholder="Enter your street Address" required>
                             </div>
                         </div>
 
@@ -209,7 +221,8 @@
                             <label>Religion</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🛐</span>
-                                <input type="text" id="regName" name="religion" placeholder="Enter your Religion" required>
+                                <input type="text" name="religion"
+                                    placeholder="Enter your Religion" required>
                             </div>
                         </div>
 
@@ -217,7 +230,8 @@
                             <label>Father Name</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="father_name" placeholder="Enter your Father Name" required>
+                                <input type="text" name="father_name"
+                                    placeholder="Enter your Father Name" required>
                             </div>
                         </div>
 
@@ -225,7 +239,8 @@
                             <label>Mother Name</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="mother_name" placeholder="Enter your Mother Name" required>
+                                <input type="text" name="mother_name"
+                                    placeholder="Enter your Mother Name" required>
                             </div>
                         </div>
 
@@ -233,7 +248,8 @@
                             <label>Next of Kin Name</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="next_of_kin_name" placeholder="Enter your Next of Kin Name" required>
+                                <input type="text" name="next_of_kin_name"
+                                    placeholder="Enter your Next of Kin Name" required>
                             </div>
                         </div>
 
@@ -241,7 +257,8 @@
                             <label>Next of Kin Relationship</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="next_of_kin_relationship" placeholder="Enter your Next of Kin Relationship" required>
+                                <input type="text" name="next_of_kin_relationship"
+                                    placeholder="Enter your Next of Kin Relationship" required>
                             </div>
                         </div>
 
@@ -249,15 +266,17 @@
                             <label>Next of Kin Address</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🌍</span>
-                                <input type="text" id="regName" name="next_of_kin_address" placeholder="Enter your Next of Kin Address" required>
+                                <input type="text" name="next_of_kin_address"
+                                    placeholder="Enter your Next of Kin Address" required>
                             </div>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label>Phone Number of Next of Kin</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">📱</span>
-                                <input type="tel" id="regPhone" name="phone_no_of_next_of_kin" placeholder="0803 456 7890" required>
+                                <input type="tel" name="phone_no_of_next_of_kin"
+                                    placeholder="0803 456 7890" required>
                             </div>
                         </div>
 
@@ -265,15 +284,17 @@
                             <label>Language(you speak)</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🗣️</span>
-                                <input type="text" id="regName" name="language" placeholder="Enter your Language you speak" required>
+                                <input type="text" name="language"
+                                    placeholder="Enter your Language you speak" required>
                             </div>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label>NIN</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🪪</span>
-                                <input type="text" id="regName" name="nin" placeholder="Enter your NIN" required>
+                                <input type="text" name="nin" placeholder="Enter your NIN"
+                                    required>
                             </div>
                         </div>
 
@@ -281,7 +302,8 @@
                             <label>Business/Company Name</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🏢</span>
-                                <input type="text" id="regName" name="company_name" placeholder="Enter your Business/Company Name" required>
+                                <input type="text" name="company_name"
+                                    placeholder="Enter your Business/Company Name" required>
                             </div>
                         </div>
 
@@ -289,7 +311,8 @@
                             <label>Office State of Residence</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🏢</span>
-                                <input type="text" id="regName" name="office_state_of_residence" placeholder="Enter Office State of Residence" required>
+                                <input type="text" name="office_state_of_residence"
+                                    placeholder="Enter Office State of Residence" required>
                             </div>
                         </div>
 
@@ -297,7 +320,8 @@
                             <label>Office Town of Residence</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🏢</span>
-                                <input type="text" id="regName" name="office_town_of_residence" placeholder="Enter Office Town of Residence" required>
+                                <input type="text" name="office_town_of_residence"
+                                    placeholder="Enter Office Town of Residence" required>
                             </div>
                         </div>
 
@@ -305,7 +329,8 @@
                             <label>Office Address</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🏢</span>
-                                <input type="text" id="regName" name="office_address" placeholder="Enter Office Address" required>
+                                <input type="text" name="office_address"
+                                    placeholder="Enter Office Address" required>
                             </div>
                         </div>
 
@@ -313,8 +338,10 @@
                             <label>Password</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🔒</span>
-                                <input type="password" id="regPassword" placeholder="Create a strong password" required>
-                                <button type="button" class="password-toggle" onclick="togglePassword('regPassword')">👁️</button>
+                                <input type="password" id="regPassword" placeholder="Create a strong password"
+                                    required>
+                                <button type="button" class="password-toggle"
+                                    onclick="togglePassword('regPassword')">👁️</button>
                             </div>
                             <div class="validation-message" id="passwordStrength"></div>
                         </div>
@@ -323,15 +350,18 @@
                             <label>Confirm Password</label>
                             <div class="input-wrapper">
                                 <span class="input-icon">🔒</span>
-                                <input type="password" id="regConfirmPassword" placeholder="Confirm your password" required>
-                                <button type="button" class="password-toggle" onclick="togglePassword('regConfirmPassword')">👁️</button>
+                                <input type="password" id="regConfirmPassword" placeholder="Confirm your password"
+                                    required>
+                                <button type="button" class="password-toggle"
+                                    onclick="togglePassword('regConfirmPassword')">👁️</button>
                             </div>
                             <div class="validation-message" id="passwordMatch"></div>
                         </div>
 
                         <div class="checkbox-group">
                             <input type="checkbox" id="agreeTerms" required>
-                            <label for="agreeTerms">I agree to the <a href="#" style="color: var(--secondary);">Terms & Conditions</a></label>
+                            <label for="agreeTerms">I agree to the <a href="#"
+                                    style="color: var(--secondary);">Terms & Conditions</a></label>
                         </div>
 
                         <button type="submit" class="submit-btn">
@@ -383,6 +413,7 @@
 
         // User Type Selection
         let selectedUserType = '';
+
         function selectUserType(type) {
             selectedUserType = type;
             document.getElementById('userType').value = type;
@@ -407,7 +438,10 @@
 
             // Simulate API call
             setTimeout(() => {
-                console.log('Login:', { email, password });
+                console.log('Login:', {
+                    email,
+                    password
+                });
                 alert('Login successful! Redirecting to dashboard...');
                 // window.location.href = 'dashboard.html';
 
@@ -452,7 +486,13 @@
 
             // Simulate API call
             setTimeout(() => {
-                console.log('Register:', { userType, name, email, phone, password });
+                console.log('Register:', {
+                    userType,
+                    name,
+                    email,
+                    phone,
+                    password
+                });
 
                 // Show success message
                 document.getElementById('registerSuccess').classList.add('show');
@@ -603,4 +643,5 @@
         }
     </script>
 </body>
+
 </html>
