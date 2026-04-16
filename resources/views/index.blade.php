@@ -69,7 +69,7 @@
                 agents, manage properties, and build a trusted real estate community.</p>
             <div class="hero-buttons">
                 <a href="{{ route('verify_agent') }}" class="btn-primary">Verify an Agent</a>
-                <a href="{{ route('login') }}" class="btn-secondary">Register as Member</a>
+                <a href="{{ route('signup') }}" class="btn-secondary">Register as Member</a>
             </div>
         </div>
 

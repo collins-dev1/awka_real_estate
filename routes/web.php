@@ -17,6 +17,9 @@ Route::get('verify_agent', [LandingPageController::class, 'verify_agent'])->name
 Route::get('login2', function(){
     return view('auth.login2');
 });
+Route::get('signup', function(){
+    return view('auth.signup');
+})->name('signup');
 
 Auth::routes();
 

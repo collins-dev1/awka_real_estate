@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register - Awka Real Estate Agents Association</title>
+    <title>Login - Awka Real Estate Agents Association</title>
     <link rel="stylesheet" href="{{ asset('realestate/css/login.css') }}">
     <link rel="icon" href="{{ asset('realestate/img/WhatsApp Image 2025-12-12 at 8.39.38 AM.jpeg') }}">
 </head>
